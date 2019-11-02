@@ -22,7 +22,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What is your gross annual income" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TuJ-1W-4yH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What is your gross annual income" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="TuJ-1W-4yH">
                                 <rect key="frame" x="48" y="224" width="319" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -52,6 +52,9 @@
                                 <rect key="frame" x="138" y="367" width="139" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Calculate Tax Owing"/>
+                                <connections>
+                                    <action selector="calculateTax:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x7j-dJ-RKa"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="effective tax rate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zc7-hj-rEY">
                                 <rect key="frame" x="56" y="520" width="326" height="27"/>
@@ -64,6 +67,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="annualIncome" destination="TuJ-1W-4yH" id="is5-1N-yxj"/>
+                        <outlet property="effectiveTaxRate" destination="Zc7-hj-rEY" id="bho-jv-f3V"/>
+                        <outlet property="grossAnnualIncome" destination="yE6-7X-rJu" id="k9i-7w-JaK"/>
+                        <outlet property="labelTaxOwed" destination="gJX-IF-7ce" id="ipD-CI-u4N"/>
+                        <outlet property="personName" destination="Yq1-8E-Dix" id="2Hk-DQ-UYW"/>
+                        <outlet property="taxOwed" destination="gJX-IF-7ce" id="HT0-xl-gZO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
