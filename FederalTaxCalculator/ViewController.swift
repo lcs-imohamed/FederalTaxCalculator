@@ -11,7 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     //MARK:Properties
     @IBOutlet weak var personName: UITextField!
-    @IBOutlet weak var annualIncome: UILabel!
+    @IBOutlet weak var grossAnnualIncome: UITextField!
+   
     @IBOutlet weak var labelTaxOwed: UILabel!
     @IBOutlet weak var effectiveTaxRate: UILabel!
     override func viewDidLoad() {
@@ -27,17 +28,25 @@ class ViewController: UIViewController {
             labelTaxOwed.text = "Please input a value. "
             return
         }
-        guard let annualIncomeAsString = annualIncome.text else {
+        guard let grossAnnualIncomeAsString = grossAnnualIncome.text else {
             labelTaxOwed.text = "Please input a value."
             return
         }
         //Change to double
-            guard let annualIncomeAsDouble = Double(annualIncomeAsString) else {
+            guard let grossAnnualIncomeAsDouble = Double(grossAnnualIncomeAsString) else {
                 labelTaxOwed.text = "Please input a numerical value."
                 return
             }
         //Calculate tax
-        
+        switch grossAnnualIncomeAsDouble {
+        case 0...47630:
+            let taxOwedInDollars = 0.15 * grossAnnualIncomeAsDouble
+            labelTaxOwed.text = String(taxOwedInDollars)
+            
+        default:
+            print("aww shucks. it didnt work")
+            
+        }
         }
     }
    
