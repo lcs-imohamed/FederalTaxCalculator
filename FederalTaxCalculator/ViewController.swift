@@ -37,19 +37,40 @@ class ViewController: UIViewController {
                 labelTaxOwed.text = "Please input a numerical value."
                 return
             }
+        
         //Calculate tax
         switch grossAnnualIncomeAsDouble {
+       
+        case 147668...210371:
+            let taxOwedInDollars = 0.29 * grossAnnualIncomeAsDouble
+            labelTaxOwed.text = String(taxOwedInDollars)
+        
+        case 95260...147667:
+            let taxOwedInDollars = 0.26 * grossAnnualIncomeAsDouble
+            labelTaxOwed.text = String(taxOwedInDollars)
+     
+        
+        case 47631...95259:
+            let taxOwedInDollars = 0.205 * grossAnnualIncomeAsDouble
+            labelTaxOwed.text = String(taxOwedInDollars)
+            fallthrough
+        
+        
         case 0...47630:
+            
             let taxOwedInDollars = 0.15 * grossAnnualIncomeAsDouble
             labelTaxOwed.text = String(taxOwedInDollars)
-            
+       
+       
+         
         default:
             print("aww shucks. it didnt work")
             
         }
-        }
+        
     }
    
 
 
 
+}
