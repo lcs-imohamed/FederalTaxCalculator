@@ -12,12 +12,11 @@ class ViewController: UIViewController {
     //MARK:Properties
     @IBOutlet weak var personName: UITextField!
     @IBOutlet weak var grossAnnualIncome: UITextField!
-   
-    @IBOutlet weak var labelTaxOwed: UILabel!
+    @IBOutlet weak var outputTaxOwed: UILabel!
     @IBOutlet weak var effectiveTaxRate: UILabel!
     override func viewDidLoad() {
-    
-    //MARK: Methods
+        
+        //MARK: Methods
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
@@ -25,52 +24,65 @@ class ViewController: UIViewController {
         
         //Obtain value from text field
         guard let personNameAsString = personName.text else {
-            labelTaxOwed.text = "Please input a value. "
+            outputTaxOwed.text = "Please input a value. "
             return
         }
         guard let grossAnnualIncomeAsString = grossAnnualIncome.text else {
-            labelTaxOwed.text = "Please input a value."
+            outputTaxOwed.text = "Please input a value."
             return
         }
         //Change to double
-            guard let grossAnnualIncomeAsDouble = Double(grossAnnualIncomeAsString) else {
-                labelTaxOwed.text = "Please input a numerical value."
-                return
-            }
+        guard let grossAnnualIncomeAsDouble = Double(grossAnnualIncomeAsString) else {
+            outputTaxOwed.text = "Please input a numerical value."
+            return
+        }
+        var taxOwedInDollars = 0.0
         
         //Calculate tax
         switch grossAnnualIncomeAsDouble {
-       
-        case 147668...210371:
-            let taxOwedInDollars = 0.29 * grossAnnualIncomeAsDouble
-            labelTaxOwed.text = String(taxOwedInDollars)
-        
-        case 95260...147667:
-            let taxOwedInDollars = 0.26 * grossAnnualIncomeAsDouble
-            labelTaxOwed.text = String(taxOwedInDollars)
-     
-        
-        case 47631...95259:
-            let taxOwedInDollars = 0.205 * grossAnnualIncomeAsDouble
-            labelTaxOwed.text = String(taxOwedInDollars)
-            fallthrough
-        
-        
+            
+            
         case 0...47630:
+            taxOwedInDollars = 0.15 * grossAnnualIncomeAsDouble
             
-            let taxOwedInDollars = 0.15 * grossAnnualIncomeAsDouble
-            labelTaxOwed.text = String(taxOwedInDollars)
-       
-       
-         
+            
+        case 47631...95259:
+            taxOwedInDollars = 0.205 * grossAnnualIncomeAsDouble + 47630 * 0.15
+            
+        case 95260...147667:
+            taxOwedInDollars = 0.26 * grossAnnualIncomeAsDouble + 47628 * 0.205
+            
+            
+        case 147668...210371:
+            taxOwedInDollars = 0.29 * grossAnnualIncomeAsDouble + 52407 * 0.26
+            
+            
         default:
-            print("aww shucks. it didnt work")
+            taxOwedInDollars = 0.33 * grossAnnualIncomeAsDouble + 62703 * 0.33
             
+            
+            
+            
+            
+            //let taxOwedInDollars = (grossAnnualIncomeAsDouble - //other variable representing other totals)
+            //50000 * 0.15 +
+            //50000 *0.205+
+            // 30000 *0.20 +
+            //600000 *0.33
+            //2900000-15000
+            //65000 gross income
+            // 50,000 at 15%
+            // find differnce in the ranges and then add
         }
         
+       outputTaxOwed.text = "The tax owed is " + String(taxOwedInDollars)
+        
+        
+        
     }
-   
-
-
-
+    
+    
+    
+    
+    
 }

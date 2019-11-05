@@ -76,7 +76,7 @@
                     <connections>
                         <outlet property="effectiveTaxRate" destination="Zc7-hj-rEY" id="bho-jv-f3V"/>
                         <outlet property="grossAnnualIncome" destination="yE6-7X-rJu" id="Vwg-QC-aAg"/>
-                        <outlet property="labelTaxOwed" destination="gJX-IF-7ce" id="sRy-CN-B6p"/>
+                        <outlet property="outputTaxOwed" destination="gJX-IF-7ce" id="Dr1-Kp-Ewo"/>
                         <outlet property="personName" destination="Yq1-8E-Dix" id="2Hk-DQ-UYW"/>
                     </connections>
                 </viewController>
