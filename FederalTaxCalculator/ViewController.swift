@@ -13,7 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var personName: UITextField!
     @IBOutlet weak var grossAnnualIncome: UITextField!
     @IBOutlet weak var outputTaxOwed: UILabel!
-    @IBOutlet weak var effectiveTaxRate: UILabel!
+    @IBOutlet weak var outputEffectiveTaxRate: UILabel!
+    
     override func viewDidLoad() {
         
         //MARK: Methods
@@ -75,14 +76,21 @@ class ViewController: UIViewController {
             // find differnce in the ranges and then add
         }
         
-       outputTaxOwed.text = "The tax owed is " + String(taxOwedInDollars)
+        //Display tax owed on label along with name and $.
+        outputTaxOwed.text = String(personNameAsString) + " your tax owed is " + "$" + String(taxOwedInDollars)
         
+        //Calculate effective tax rate and display it.
+        var effectiveTaxRate =  taxOwedInDollars.text / grossAnnualIncome.text
         
+        }
+      
+        }
+
+    
+            
         
-    }
     
     
     
-    
-    
-}
+
+
